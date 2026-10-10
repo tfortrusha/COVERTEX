@@ -1,11 +1,19 @@
 import json
 
 
-def create_message(ciphertext: bytes, nonce: bytes, timestamp: int, signature: bytes) -> bytes:
+def create_message(
+    ciphertext: bytes,
+    nonce: bytes,
+    timestamp: int,
+    message_id: str,
+    signature: bytes
+) -> bytes:
+
     message = {
         "ciphertext": ciphertext.hex(),
         "nonce": nonce.hex(),
         "timestamp": timestamp,
+        "message_id": message_id,
         "signature": signature.hex()
     }
 
